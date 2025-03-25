@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -43,28 +44,29 @@
   };
 
   # Enable the X11 windowing system.
-  #services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
+  #programs.hyprland.enable = true;
+  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Configure keymap in X11
+  services.xserver.displayManager =
+    let
+      compiledLayout = pkgs.runCommand "keyboard-layout" { } ''
+        ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./benedek-keyboard-layout.xkb} $out
+      '';
+    in
+    {
+      sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
+    };
   services.xserver.xkb = {
     layout = "hu";
     variant = "";
-    extraLayouts.benedek-keymap-override = {
-      description = "Benedek's keymap overrides";
-      languages = [ "hun" ];
-      symbolsFile = /home/benedekfauszt/.config/xkb/benedek-keymap-override.xkb;
-    };
   };
   # Configure console keymap
   console.keyMap = "hu";
@@ -97,7 +99,7 @@
     description = "Benedek Fauszt";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
       chromium
       vim
     ];
@@ -109,8 +111,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    libsForQt5.dolphin
+    wofi
+    kitty
+    alacritty
+    xterm
     grim # screenshot functionality
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout

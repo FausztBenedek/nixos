@@ -56,6 +56,8 @@
 
   # Configure keymap in X11
   services.xserver.displayManager =
+    # Command to test layout: xkbcomp '/etc/nixos/benedek-keyboard-layout.xkb $DISPLAY'
+    # To get the current configuration in detail: 'xkbcomp $DISPLAY example.xkb'
     let
       compiledLayout = pkgs.runCommand "keyboard-layout" { } ''
         ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./benedek-keyboard-layout.xkb} $out

@@ -43,23 +43,17 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
 
-  # Enable repeating keys
-  services.xserver.autoRepeatDelay = 250;
-  services.xserver.autoRepeatInterval = 30;
-
-
-  #services.xserver.xkbDir = /home/benedekfauszt/.config/xkb;
-  #services.gnome.gnome-keyring.enable = true;
-  #programs.sway = {
-  #  enable = true;
-  #  wrapperFeatures.gtk = true;
-  #};
+  services.gnome.gnome-keyring.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
 
   # Configure keymap in X11

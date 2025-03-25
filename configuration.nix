@@ -47,25 +47,13 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
 
   #programs.hyprland.enable = true;
   #environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Configure keymap in X11
-  services.xserver.displayManager =
-    # Command to test layout: xkbcomp '/etc/nixos/benedek-keyboard-layout.xkb $DISPLAY'
-    # To get the current configuration in detail: 'xkbcomp $DISPLAY example.xkb'
-    let
-      compiledLayout = pkgs.runCommand "keyboard-layout" { } ''
-        ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${./benedek-keyboard-layout.xkb} $out
-      '';
-    in
-    {
-      gdm.enable = true;
-      sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
-    };
   services.xserver.xkb = {
     layout = "hu";
     variant = "";

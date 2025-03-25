@@ -61,6 +61,22 @@ xkb_keymap {
         type= "FOUR_LEVEL_ALPHABETIC",
         symbols[Group1]= [          aacute,          Aacute,          asciicircum,           U1E9E ]
     };
+    key <LSGT> { // Remap alt+í to |
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [          iacute,          Iacute,            bar,         greater ]
+    };
+    key <AE01> { // Remap alt+1 to &
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               1,      apostrophe,      ampersand,      dead_tilde ]
+    };
+    key <AD01> { // Remap alt+q to @
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               q,               Q,       at,     Greek_OMEGA ]
+    };
+    key <AB06> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               n,               N,      asciitilde, rightsinglequotemark ]
+    };
   };
 	xkb_geometry  { include "pc(pc104)"	};
 };

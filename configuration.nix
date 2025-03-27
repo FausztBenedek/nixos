@@ -50,7 +50,11 @@
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   #environment.sessionVariables.LIBGL_ALWAYS_SOFTWARE = "1";
 
@@ -58,6 +62,11 @@
     layout = "hu";
     variant = "";
   };
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
   # Configure console keymap
   console.keyMap = "hu";
 
@@ -113,7 +122,22 @@
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
+
+    evtest
+    xorg.xev
+    xorg.xkbcomp
+    (pkgs.callPackage ./hyprland-launcher/hyprland-launcher.nix { })
+
+    # Hyprland stuff
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    }))
+    dunst
+    libnotify
+    networkmanagerapplet
   ];
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

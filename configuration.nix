@@ -23,7 +23,6 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  # systemd.network.enable = true;
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -45,11 +44,19 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #environment.sessionVariables.LIBGL_ALWAYS_SOFTWARE = "1";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -119,15 +126,12 @@
     evtest
     xorg.xev
     xorg.xkbcomp
-    # (pkgs.callPackage ./hyprland-launcher/hyprland-launcher.nix { })
 
-    # # Hyprland stuff
-    # (waybar.overrideAttrs (oldAttrs: {
-    #   mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    # }))
-    # dunst
-    # libnotify
-    # networkmanagerapplet
+    # Hyprland stuff
+    waybar
+    dunst
+    libnotify
+    networkmanagerapplet
   ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

@@ -132,6 +132,7 @@
     dunst
     libnotify
     networkmanagerapplet
+    hyprpaper
   ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

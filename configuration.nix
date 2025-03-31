@@ -99,7 +99,7 @@
     description = "Benedek Fauszt";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
       chromium
       vim
     ];
@@ -111,8 +111,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     libsForQt5.dolphin
     wofi
     kitty
@@ -136,6 +136,13 @@
   ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  #Bloothoth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true; # Adds a nice gui to handle Bluetooth devices
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

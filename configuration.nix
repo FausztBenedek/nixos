@@ -122,6 +122,7 @@
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
     pciutils
+    htop
 
     evtest
     xorg.xev

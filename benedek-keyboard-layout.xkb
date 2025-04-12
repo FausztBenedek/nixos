@@ -1,0 +1,82 @@
+xkb_keymap {
+	xkb_keycodes  { include "evdev+aliases(qwertz)"	};
+	xkb_types     { include "complete"	};
+	xkb_compat    { include "complete"	};
+	xkb_symbols   { 
+    include "pc+hu+inet(evdev)+level3(caps_switch)+group(alt_space_toggle)"	
+    key <LALT> { // Remap left alt to do the same as right alt
+        type= "ONE_LEVEL",
+        symbols[Group1]= [ ISO_Level3_Shift ]
+    };
+    key <AE04> { // Remap alt+4 to $
+        type[group1]= "THREE_LEVEL",
+        symbols[Group1]= [               4,          exclam,      dollar ],
+        symbols[Group2]= [               4,          dollar ]
+    };
+    key <AB09> { // Remap alt+. to ;
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [          period,           colon,         semicolon,        division ],
+        symbols[Group2]= [          period,         greater ]
+    };
+    key <AE08> { // Remap alt+8 to [
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [               8,       parenleft,   bracketleft,        abovedot ],
+        symbols[Group2]= [               8,        asterisk ]
+    };
+    key <AE09> { // Remap alt+9 to ]
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [               9,      parenright,      bracketright,           acute ],
+        symbols[Group2]= [               9,       parenleft ]
+    };
+    key <AE07> { // Remap alt+7 to {
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [               7,           equal,           braceleft,      dead_grave ],
+        symbols[Group2]= [               7,       ampersand ]
+    };
+    key <AE10> { // Remap alt+ö to }
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [      odiaeresis,      Odiaeresis, braceright,     doubleacute ],
+        symbols[Group2]= [               0,      parenright ]
+    };
+    key <AC02> { // Remap alt+s to ß
+        type[group1]= "FOUR_LEVEL_ALPHABETIC",
+        type[group2]= "ALPHABETIC",
+        symbols[Group1]= [               s,               S,         ssharp,           U1E9E ],
+        symbols[Group2]= [               s,               S ]
+    };
+    key <BKSL> { // Remap alt+ű to `
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [    udoubleacute,    Udoubleacute,        grave,      dead_breve ],
+        symbols[Group2]= [       backslash,             bar ]
+    };
+    key <AE03> { // Remap alt+shift+3 to #
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               3,            plus,     asciicircum, numbersign ]
+    };
+    key <AE11> { // Remap alt+ó to \
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [      udiaeresis,      Udiaeresis,  backslash,       backslash ]
+    };
+    key <AC11> { // Remap alt+á to ^
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [          aacute,          Aacute,          asciicircum,           U1E9E ]
+    };
+    key <LSGT> { // Remap alt+í to |
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [          iacute,          Iacute,            bar,         greater ]
+    };
+    key <AE01> { // Remap alt+1 to &
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               1,      apostrophe,      ampersand,      dead_tilde ]
+    };
+    key <AD01> { // Remap alt+q to @
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               q,               Q,       at,     Greek_OMEGA ]
+    };
+    key <AB06> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               n,               N,      asciitilde, rightsinglequotemark ]
+    };
+  };
+	xkb_geometry  { include "pc(pc104)"	};
+};

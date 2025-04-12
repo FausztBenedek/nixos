@@ -102,6 +102,7 @@
       #  thunderbird
       chromium
       vim
+      pywal
     ];
   };
 
@@ -134,6 +135,7 @@
     libnotify
     networkmanagerapplet
     hyprpaper
+    hyprcursor
   ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

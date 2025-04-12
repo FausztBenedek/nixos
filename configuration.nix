@@ -128,6 +128,7 @@
     evtest
     xorg.xev
     xorg.xkbcomp
+    alsa-utils
 
     # Hyprland stuff
     waybar

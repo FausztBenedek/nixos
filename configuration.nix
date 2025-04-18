@@ -124,6 +124,8 @@
     mako # notification system developed by swaywm maintainer
     pciutils
     htop
+    nautilus
+    brightnessctl
 
     evtest
     xorg.xev

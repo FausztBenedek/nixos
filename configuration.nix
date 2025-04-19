@@ -115,7 +115,7 @@
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     libsForQt5.dolphin
-    wofi
+    rofi-wayland
     kitty
     xterm
     grim # screenshot functionality
@@ -124,7 +124,7 @@
     mako # notification system developed by swaywm maintainer
     pciutils
     htop
-    nautilus
+    nemo
     brightnessctl
 
     evtest

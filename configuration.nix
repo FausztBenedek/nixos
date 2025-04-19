@@ -55,8 +55,11 @@
     xwayland.enable = true;
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   #environment.sessionVariables.LIBGL_ALWAYS_SOFTWARE = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    XCURSOR_SIZE = 40;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -128,6 +131,7 @@
     brightnessctl
     numix-gtk-theme
     numix-icon-theme-circle
+    numix-cursor-theme
 
     evtest
     xorg.xev

@@ -139,9 +139,13 @@
     networkmanagerapplet
     hyprpaper
     hyprcursor
+    hyprlock
   ];
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-hyprland
+  ];
 
   #Bloothoth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
@@ -149,6 +153,17 @@
   services.blueman.enable = true; # Adds a nice gui to handle Bluetooth devices
 
 
+  services.greetd = {
+    enable = true;
+    vt = 3;
+    settings = rec {
+      initial_session = {
+        user = "benedekfauszt";
+        command = "Hyprland";
+      };
+      default_session = initial_session;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -126,6 +126,8 @@
     htop
     nemo
     brightnessctl
+    numix-gtk-theme
+    numix-icon-theme-circle
 
     evtest
     xorg.xev

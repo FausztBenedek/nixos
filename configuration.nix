@@ -59,6 +59,7 @@
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     XCURSOR_SIZE = 40;
+    HYPRCURSOR_SIZE = 40;
   };
 
   # Configure keymap in X11
@@ -146,6 +147,7 @@
     hyprpaper
     hyprcursor
     hyprlock
+    greetd.tuigreet
   ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [
@@ -161,13 +163,13 @@
 
   services.greetd = {
     enable = true;
-    vt = 3;
-    settings = rec {
-      initial_session = {
-        user = "benedekfauszt";
-        command = "Hyprland";
+    # vt = 3;
+    settings = {
+      # initial_session = {}, which could be used to login automatically
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        user = "greeter";
       };
-      default_session = initial_session;
     };
   };
 

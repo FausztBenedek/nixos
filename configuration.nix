@@ -118,8 +118,21 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    libsForQt5.dolphin
-    rofi-wayland
+
+
+    st
+    (makeDesktopItem rec {
+      name = "st";
+      desktopName = "st";
+      exec = "${st}/bin/st";
+    })
+
+    xorg.xrdb
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.zed-mono
+    gcc
+    rustup
+    rofi
     kitty
     xterm
     grim # screenshot functionality
@@ -154,6 +167,8 @@
     pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-hyprland
   ];
+
+
 
   #Bloothoth
   hardware.bluetooth.enable = true; # enables support for Bluetooth

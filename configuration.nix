@@ -168,6 +168,8 @@
     pkgs.xdg-desktop-portal-hyprland
   ];
 
+  environment.etc."hypr".source = ./hyprland-config;
+
 
 
   #Bloothoth
@@ -182,7 +184,7 @@
     settings = {
       # initial_session = {}, which could be used to login automatically
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"Hyprland -c /etc/hypr/hyprland.conf\"";
         user = "greeter";
       };
     };

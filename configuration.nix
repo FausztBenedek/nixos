@@ -2,8 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+  benedek-st = pkgs.callPackage ./suckless/st { };
+in
 {
   imports =
     [
@@ -24,6 +27,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "idea-ultimate"
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -120,11 +126,11 @@
     #  wget
 
 
-    st
-    (makeDesktopItem rec {
+    benedek-st
+    (makeDesktopItem {
       name = "st";
       desktopName = "st";
-      exec = "${st}/bin/st";
+      exec = "${benedek-st}/bin/st-wl";
     })
 
     xorg.xrdb

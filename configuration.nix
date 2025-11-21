@@ -130,6 +130,7 @@ in
     (makeDesktopItem {
       name = "st";
       desktopName = "st";
+      icon = ./suckless/st/terminal-icon.png;
       exec = "${benedek-st}/bin/st-wl";
     })
 

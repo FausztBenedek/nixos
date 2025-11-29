@@ -69,11 +69,6 @@ in
     HYPRCURSOR_SIZE = 40;
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "hu";
-    variant = "";
-  };
   hardware = {
     graphics.enable = true;
     nvidia.modesetting.enable = true;
@@ -197,6 +192,18 @@ in
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"Hyprland -c /etc/hypr/hyprland.conf\"";
         user = "greeter";
       };
+    };
+  };
+
+
+  services.xserver.enable = false;
+
+  services.xserver.xkb = {
+    layout = "hu";
+    extraLayouts.hu-custom = {
+      languages = [ "hu" ];
+      description = "HU with remaps";
+      symbolsFile = ./hu-custom.xkb;
     };
   };
 

@@ -15,10 +15,11 @@ in
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  services.qemuGuest.enable = true;
-  networking.hostName = "nixos"; # Define your hostname.
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
+  networking.hostName = "stew"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -134,6 +135,7 @@ in
       exec = "${benedek-st}/bin/st-wl";
     })
 
+    jetbrains.idea-ultimate
     xorg.xrdb
     nerd-fonts.jetbrains-mono
     nerd-fonts.zed-mono
@@ -141,6 +143,7 @@ in
     rustup
     rofi
     kitty
+    alacritty
     xterm
     grim # screenshot functionality
     slurp # screenshot functionality

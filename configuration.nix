@@ -195,18 +195,6 @@ in
     };
   };
 
-
-  services.xserver.enable = false;
-
-  services.xserver.xkb = {
-    layout = "hu";
-    extraLayouts.hu-custom = {
-      languages = [ "hu" ];
-      description = "HU with remaps";
-      symbolsFile = ./hu-custom.xkb;
-    };
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

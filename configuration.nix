@@ -151,6 +151,7 @@ in
     numix-gtk-theme
     numix-icon-theme-circle
     numix-cursor-theme
+    qutebrowser # I had to start it with --qt-flag disable-gpu
 
     evtest
     xorg.xev

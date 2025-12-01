@@ -14,6 +14,13 @@
         keyboard-remap-flake.nixosModules.default
       ];
     };
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        keyboard-remap-flake.nixosModules.default
+      ];
+    };
   };
 
 }

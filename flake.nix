@@ -7,8 +7,8 @@
   };
 
   outputs = { self, nixpkgs, keyboard-remap-flake, ... }: {
-    nixosConfigurations."stew" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
       modules = [
         ./configuration.nix
         keyboard-remap-flake.nixosModules.default

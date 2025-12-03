@@ -12,7 +12,7 @@
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    ssl-cer-file = "/etc/ssl/certs/ca-certificates.crt";
+    ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
     trusted-users = [ "root" "nixos" ];
   };
   security.pki.certificates = [

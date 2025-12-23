@@ -13,3 +13,6 @@ nm-applet --indicator &
 blueman-applet &
 
 waybar &
+
+# Clipboard manager watcher
+wl-paste --watch cliphist store

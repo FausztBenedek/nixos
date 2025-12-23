@@ -103,12 +103,10 @@ in
   users.users.benedekfauszt = {
     isNormalUser = true;
     description = "Benedek Fauszt";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       #  thunderbird
       chromium
-      vim
-      pywal
     ];
   };
 
@@ -152,6 +150,7 @@ in
     numix-icon-theme-circle
     numix-cursor-theme
     qutebrowser # I had to start it with --qt-flag disable-gpu
+    cliphist
 
     evtest
     xorg.xev

@@ -12,6 +12,7 @@ in
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/hyprland/hyprland-module.nix
     ];
 
   # Bootloader.
@@ -50,18 +51,6 @@ in
     LC_PAPER = "de_DE.UTF-8";
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  #services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
   };
 
   #environment.sessionVariables.LIBGL_ALWAYS_SOFTWARE = "1";
@@ -105,7 +94,6 @@ in
     description = "Benedek Fauszt";
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
-      #  thunderbird
       chromium
     ];
   };
@@ -129,7 +117,6 @@ in
     })
 
     jetbrains.idea-ultimate
-    xorg.xrdb
     nerd-fonts.jetbrains-mono
     nerd-fonts.zed-mono
     gcc
@@ -138,14 +125,7 @@ in
     kitty
     alacritty
     xterm
-    grim # screenshot functionality
-    slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
-    pciutils
-    htop
-    nemo
-    brightnessctl
     numix-gtk-theme
     numix-icon-theme-circle
     volantes-cursors
@@ -157,24 +137,8 @@ in
     xorg.xkbcomp
     alsa-utils
 
-    # Hyprland stuff
-    waybar
-    dunst
-    libnotify
-    networkmanagerapplet
-    hyprpaper
-    hyprlock
     greetd.tuigreet
   ];
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-hyprland
-  ];
-
-  environment.etc."hypr".source = ./hyprland-config;
-
-
 
   #Bloothoth
   hardware.bluetooth = {

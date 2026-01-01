@@ -65,8 +65,6 @@ in
   #environment.sessionVariables.LIBGL_ALWAYS_SOFTWARE = "1";
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    XCURSOR_SIZE = 40;
-    HYPRCURSOR_SIZE = 40;
   };
 
   hardware = {
@@ -148,7 +146,7 @@ in
     brightnessctl
     numix-gtk-theme
     numix-icon-theme-circle
-    numix-cursor-theme
+    volantes-cursors
     qutebrowser # I had to start it with --qt-flag disable-gpu
     cliphist
 
@@ -163,7 +161,6 @@ in
     libnotify
     networkmanagerapplet
     hyprpaper
-    hyprcursor
     hyprlock
     greetd.tuigreet
   ];

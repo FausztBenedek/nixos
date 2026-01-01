@@ -30,6 +30,8 @@ in
   networking.networkmanager.enable = true;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "idea-ultimate"
+    "omnissa-horizon-client"
+    "teams-for-linux"
   ];
 
   # Set your time zone.
@@ -116,8 +118,8 @@ in
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-
-
+    omnissa-horizon-client
+    teams-for-linux
     benedek-st
     (makeDesktopItem {
       name = "st";

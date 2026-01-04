@@ -33,6 +33,7 @@ in
     "idea-ultimate"
     "omnissa-horizon-client"
     "teams-for-linux"
+    "postman"
   ];
 
   # Set your time zone.
@@ -108,6 +109,7 @@ in
     #  wget
     omnissa-horizon-client
     teams-for-linux
+    htop
     benedek-st
     (makeDesktopItem {
       name = "st";
@@ -116,7 +118,20 @@ in
       exec = "${benedek-st}/bin/st-wl";
     })
 
+    (makeDesktopItem {
+      name = "st";
+      desktopName = "st";
+      icon = ./suckless/st/terminal-icon.png;
+      exec = "${benedek-st}/bin/st-wl";
+    })
+    (makeDesktopItem {
+      name = "teams-fcb";
+      desktopName = "teams-fcb";
+      exec = "${teams-for-linux}/bin/teams-for-linux --class=teams-fcb --user-data-dir=/home/benedekfauszt/.config/teams-fcb";
+    })
     jetbrains.idea-ultimate
+    postman
+    thunderbird
     nerd-fonts.jetbrains-mono
     nerd-fonts.zed-mono
     gcc

@@ -8,14 +8,17 @@ let
   benedek-st = pkgs.callPackage ./suckless/st { };
 in
 {
+
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/hyprland/hyprland-module.nix
+      ./modules/x11.nix
     ];
 
-  # Bootloader.
+  option.x11.enable = false;
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -36,6 +39,8 @@ in
     "omnissa-horizon-client"
     "teams-for-linux"
     "postman"
+    "nvidia-x11"
+    "nvidia-settings"
   ];
 
   # Set your time zone.

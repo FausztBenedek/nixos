@@ -109,6 +109,8 @@ in
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    libreoffice
+    nemo-with-extensions
     omnissa-horizon-client
     teams-for-linux
     htop
@@ -132,6 +134,7 @@ in
       exec = "${teams-for-linux}/bin/teams-for-linux --class=teams-fcb --user-data-dir=/home/benedekfauszt/.config/teams-fcb";
     })
     jetbrains.idea-ultimate
+    qemu
     postman
     thunderbird
     nerd-fonts.jetbrains-mono

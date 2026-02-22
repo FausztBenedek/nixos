@@ -32,6 +32,7 @@
 
     environment.systemPackages = with pkgs; [
       nvidia-modprobe
+      xclip
 
       xfce.xfce4-panel
       xfce.xfce4-settings

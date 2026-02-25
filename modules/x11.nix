@@ -16,6 +16,8 @@
     services.xserver = {
       enable = true;
 
+      autoRepeatDelay = 200;
+      autoRepeatInterval = 40;
       displayManager = {
         startx.enable = true;
       };
@@ -33,6 +35,7 @@
     environment.systemPackages = with pkgs; [
       nvidia-modprobe
       xclip
+      dmenu
 
       xfce.xfce4-panel
       xfce.xfce4-settings

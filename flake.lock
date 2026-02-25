@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1771775184,
-        "narHash": "sha256-42PsYU8t/zj90eWiuHSTwRER1RJvVonW8JAI4yLrOQU=",
+        "lastModified": 1771996424,
+        "narHash": "sha256-AGxA8YIfHb01uWlgJzchwBepSnZXKgwfzTmuRem/ymw=",
         "owner": "FausztBenedek",
         "repo": "keyboard-remap-flake",
-        "rev": "4fb9fdc6906fc11191b5d8baed8403da7198425b",
+        "rev": "fb572f39d46c79d03d68a6395b9c0eea27eb3fd8",
         "type": "github"
       },
       "original": {

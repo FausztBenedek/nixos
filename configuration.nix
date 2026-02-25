@@ -17,7 +17,7 @@ in
       ./modules/x11.nix
     ];
 
-  option.x11.enable = false;
+  option.x11.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;

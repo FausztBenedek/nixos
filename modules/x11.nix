@@ -4,6 +4,11 @@
   };
   config = lib.mkIf config.option.x11.enable {
 
+    # TODO Somehow put following content to ~/.xinit:
+    #!/bin/sh
+    # exec /home/benedekfauszt/code/suckless/dwm-6.7/dwm
+    # exec xfce4-session
+
     system.nixos.tags = [ "add-x11" ];
     nixpkgs.config.nvidia.acceptLicense = true;
     boot.kernelParams = [
@@ -36,6 +41,7 @@
       nvidia-modprobe
       xclip
       dmenu
+      j4-dmenu-desktop
 
       xfce.xfce4-panel
       xfce.xfce4-settings

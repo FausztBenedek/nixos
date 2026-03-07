@@ -139,6 +139,7 @@ in
       exec = "${teams-for-linux}/bin/teams-for-linux --class=teams-fcb --user-data-dir=/home/benedekfauszt/.config/teams-fcb";
     })
     jetbrains.idea-ultimate
+    keepassxc
     qemu
     postman
     thunderbird
@@ -189,7 +190,8 @@ in
     settings = {
       # initial_session = {}, which could be used to login automatically
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"Hyprland -c /etc/hypr/hyprland.conf\"";
+        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"Hyprland -c /etc/hypr/hyprland.conf\"";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"startx\"";
         user = "greeter";
       };
     };
@@ -205,8 +207,17 @@ in
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+
+  services.openssh = {
+    enable = true;
+    ports = [ 15522 ];
+    settings = {
+      PasswordAuthentication = true;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "yes";
+      AllowUsers = [ "benedekfauszt" ];
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

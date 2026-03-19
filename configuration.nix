@@ -116,7 +116,6 @@ in
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     libreoffice
-    nemo-with-extensions
     omnissa-horizon-client
     teams-for-linux
     htop
@@ -167,6 +166,8 @@ in
     alsa-utils
 
     greetd.tuigreet
+    gvfs # Nautilus has a warning without it
+    glib # Nautilus has a warning without it
   ];
 
   #Bloothoth

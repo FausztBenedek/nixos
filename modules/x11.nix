@@ -18,23 +18,26 @@
       nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
       nvidia.nvidiaSettings = true;
     };
-    services.xserver = {
-      enable = true;
+    services = {
+      dbus.enable = true;
+      xserver = {
+        enable = true;
 
-      autoRepeatDelay = 200;
-      autoRepeatInterval = 40;
-      displayManager = {
-        startx.enable = true;
-      };
-
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          enableXfwm = true;
+        autoRepeatDelay = 200;
+        autoRepeatInterval = 40;
+        displayManager = {
+          startx.enable = true;
         };
+
+        desktopManager = {
+          xterm.enable = false;
+          xfce = {
+            enable = true;
+            enableXfwm = true;
+          };
+        };
+        videoDrivers = [ "nvidia" ];
       };
-      videoDrivers = [ "nvidia" ];
     };
 
     environment.systemPackages = with pkgs; [

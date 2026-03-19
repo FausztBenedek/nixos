@@ -40,6 +40,7 @@
     environment.systemPackages = with pkgs; [
       nvidia-modprobe
       xclip
+      xorg.xinit
       dmenu
       j4-dmenu-desktop
 

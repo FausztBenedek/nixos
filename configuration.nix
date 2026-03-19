@@ -103,6 +103,7 @@ in
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       chromium
+      brave
     ];
   };
 
@@ -119,6 +120,7 @@ in
     omnissa-horizon-client
     teams-for-linux
     htop
+    bluetui
     benedek-st
     (makeDesktopItem {
       name = "st";
@@ -143,6 +145,7 @@ in
     qemu
     postman
     thunderbird
+    nautilus
     nerd-fonts.jetbrains-mono
     nerd-fonts.zed-mono
     gcc
@@ -191,7 +194,10 @@ in
       # initial_session = {}, which could be used to login automatically
       default_session = {
         # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"Hyprland -c /etc/hypr/hyprland.conf\"";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd \"startx\"";
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet \
+                  --time \
+                  --time-format '%I:%M %p | %a • %h | %F' \
+                  --cmd "dbus-run-session startx &> ~/.Xoutput.log"'';
         user = "greeter";
       };
     };

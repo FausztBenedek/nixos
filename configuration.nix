@@ -15,6 +15,7 @@ in
       ./hardware-configuration.nix
       ./modules/hyprland/hyprland-module.nix
       ./modules/x11.nix
+      ./modules/printing.nix
     ];
 
   option.x11.enable = true;
@@ -41,6 +42,7 @@ in
     "postman"
     "nvidia-x11"
     "nvidia-settings"
+    "cnijfilter"
   ];
 
   # Set your time zone.
@@ -64,6 +66,7 @@ in
   #environment.sessionVariables.LIBGL_ALWAYS_SOFTWARE = "1";
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    EDITOR = "nvim";
   };
 
   hardware = {

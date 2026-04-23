@@ -46,6 +46,7 @@
       xorg.xinit
       dmenu
       j4-dmenu-desktop
+      feh # Wallpaper setting
 
       xfce.xfce4-panel
       xfce.xfce4-settings
